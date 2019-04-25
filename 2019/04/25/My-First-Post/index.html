@@ -302,6 +302,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://caleecs.com/blog/2019/04/25/My-First-Post/",
+  owner: 'true',
+  repo: 'https://github.com/berkeleyeecs/blog',
+  oauth: {
+    client_id: '17bb94291975ae2f697c',
+    client_secret: '7f6c9be2d7b98ca8d52a637fc6f68a419bee805a',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
