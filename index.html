@@ -166,7 +166,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2><span id="table-of-contents">Table of Contents</span><a href="#table-of-contents" class="header-anchor">#</a></h2>
+        <h2>Table of Contents</h2>
 <ul>
 <li><a href="#Basics">Basics</a>
 <ul>
@@ -191,8 +191,8 @@
 </ul>
 </li>
 </ul>
-<h3><span id="basics">Basics</span><a href="#basics" class="header-anchor">#</a></h3>
-<h4><span id="what-is-typescript">What is TypeScript</span><a href="#what-is-typescript" class="header-anchor">#</a></h4>
+<h3>Basics</h3>
+<h4>What is TypeScript</h4>
 <ul>
 <li>More feature than JS (Types, Classes, Interfaces...)
 <ul>
@@ -212,11 +212,11 @@
 <li>Deployment</li>
 <li>Animation &amp; Testing</li>
 </ul>
-<h4><span id="how-angular-app-get-loaded-and-started">How Angular App get loaded and started</span><a href="#how-angular-app-get-loaded-and-started" class="header-anchor">#</a></h4>
+<h4>How Angular App get loaded and started</h4>
 <ul>
 <li>main.ts is the first to be executed</li>
 </ul>
-<h4><span id="using-bootstrip">Using BootStrip</span><a href="#using-bootstrip" class="header-anchor">#</a></h4>
+<h4>Using BootStrip</h4>
 <ul>
 <li>
 <p>install with <code>npm install --save bootstrap@3</code></p>
@@ -227,7 +227,7 @@
 <p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  "style": [</span><br><span class="line">    "node_modules/bootstrap/dist/css/bootstrap.min.css",</span><br><span class="line">    <span class="string">"src/style.css"</span></span><br><span class="line">  ]</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4><span id="components">Components</span><a href="#components" class="header-anchor">#</a></h4>
+<h4>Components</h4>
 <ul>
 <li>
 <p>root component</p>
@@ -263,7 +263,7 @@
 <p>Selector by id is <strong><em>NOT</em></strong> supported</p>
 </li>
 </ul>
-<h4><span id="module">Module</span><a href="#module" class="header-anchor">#</a></h4>
+<h4>Module</h4>
 <ul>
 <li>
 <p>bundle of functionalities of our app</p>
@@ -273,7 +273,7 @@
 <p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// omit the .ts in the import</span></span><br><span class="line"><span class="keyword">import</span> &#123; ServerComponent &#125; <span class="keyword">from</span> <span class="string">'./server/server.component'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  declarations: [</span><br><span class="line">    <span class="comment">// register new components in declarations array</span></span><br><span class="line">    AppComponent,</span><br><span class="line">    ServerComponent <span class="comment">//but also need to import this component</span></span><br><span class="line">  ],</span><br><span class="line">  imports: [</span><br><span class="line">    <span class="comment">// add some other modules</span></span><br><span class="line">    <span class="comment">// as we can split up the app into multiple modules, then we can import it here</span></span><br><span class="line">  ],</span><br><span class="line">  providers: [</span><br><span class="line">    <span class="comment">// more in the service section</span></span><br><span class="line">  ],</span><br><span class="line">  bootstrap: [</span><br><span class="line">    <span class="comment">// which components angular should be aware of at the point of time the whole app starts</span></span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4><span id="data-binding">Data Binding</span><a href="#data-binding" class="header-anchor">#</a></h4>
+<h4>Data Binding</h4>
 <ul>
 <li>
 <p>Data binding = communication</p>
@@ -331,7 +331,7 @@
 </ul>
 </li>
 </ul>
-<h4><span id="directive">Directive</span><a href="#directive" class="header-anchor">#</a></h4>
+<h4>Directive</h4>
 <ul>
 <li>
 <p>Instructions in the DOM</p>
@@ -396,15 +396,15 @@
 </ul>
 </li>
 </ul>
-<h4><span id="model">Model</span><a href="#model" class="header-anchor">#</a></h4>
+<h4>Model</h4>
 <ul>
 <li>
 <p>name the file <code>XX.model.ts</code> (optional, but better to know what this file is about)</p>
 <p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// recipe.model.ts</span></span><br><span class="line"><span class="comment">// no need to add @</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> Recipe &#123;</span><br><span class="line">  <span class="comment">// explicitly tell ts that name is accessible to the public</span></span><br><span class="line">  <span class="keyword">public</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">public</span> description: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">public</span> imagePath: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, desc: <span class="built_in">string</span>, imagePath: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.description = desc;</span><br><span class="line">    <span class="keyword">this</span>.imagePath = imagePath;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or a shortcut</span></span><br><span class="line"><span class="comment">// put shared file in a shared folder</span></span><br><span class="line"><span class="comment">// app/shared/ingredient.model.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> Ingredient &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> amount: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h3><span id="components-amp-databinding">Components &amp; Databinding</span><a href="#components-amp-databinding" class="header-anchor">#</a></h3>
-<h4><span id="property-amp-event-binding">Property &amp; Event Binding</span><a href="#property-amp-event-binding" class="header-anchor">#</a></h4>
+<h3>Components &amp; Databinding</h3>
+<h4>Property &amp; Event Binding</h4>
 <ul>
 <li>
 <p>We can use property binding on</p>
@@ -449,7 +449,7 @@
 <p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- app/cockpit/cockpit.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-12"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Add new Servers or blueprints!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>Server Name<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;input type="text" class="form-control" [(ngModel)]="newServerName"&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"newServerName"</span> #<span class="attr">serverNameInput</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>Server Content<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> [(<span class="attr">ngModel</span>)]=<span class="string">"newServerContent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> (<span class="attr">click</span>)=<span class="string">"onAddServer(serverNameInput)"</span>&gt;</span>Add Server<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> (<span class="attr">click</span>)=<span class="string">"onAddBlueprint()"</span>&gt;</span>Add Server Blueprint<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4><span id="css-and-view-encapsulation">CSS and View Encapsulation</span><a href="#css-and-view-encapsulation" class="header-anchor">#</a></h4>
+<h4>CSS and View Encapsulation</h4>
 <ul>
 <li>
 <p>By default, it does not care in which css file you define a rule. It is applied to the whole document normally</p>
@@ -468,7 +468,7 @@
 <p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, onInit, ViewEncapsulation &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">'app-cockpit'</span>,</span><br><span class="line">  templateUrl: <span class="string">'./cockpit.component.html'</span>,</span><br><span class="line">  styleUrls: [<span class="string">'./cockpit.component.css'</span>],</span><br><span class="line">  <span class="comment">// default is ViewEncapsulation.Emulated</span></span><br><span class="line">  encapsulation: ViewEncapsulation.None</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4><span id="using-local-reference-in-templates">Using local reference in Templates</span><a href="#using-local-reference-in-templates" class="header-anchor">#</a></h4>
+<h4>Using local reference in Templates</h4>
 <ul>
 <li>
 <p>a local reference can be placed on any HTML</p>
@@ -488,7 +488,7 @@
 <p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onAddServer(serverNameInput: HTMLInputElement) &#123;</span><br><span class="line">  <span class="keyword">this</span>.serverCreated.emit(&#123;</span><br><span class="line">    serverName: serverNameInput.value,</span><br><span class="line">    serverContent: <span class="keyword">this</span>.newServerContent</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4><span id="getting-access-to-template-amp-dom-with-viewchild">Getting Access to Template &amp; DOM with @ViewChild</span><a href="#getting-access-to-template-amp-dom-with-viewchild" class="header-anchor">#</a></h4>
+<h4>Getting Access to Template &amp; DOM with @ViewChild</h4>
 <ul>
 <li>&lt;input type=&quot;text&quot; #serverNameInput&gt;</li>
 <li>import <code>@ViewChild</code> from <code>@angular/core</code></li>
@@ -510,14 +510,14 @@
 <p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- app/server-element.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel panel-default"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span>&#123;&#123; element.name &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ng-content here works as a hook --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ng-content</span>&gt;</span><span class="tag">&lt;/<span class="name">ng-content</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4><span id="getting-access-to-ng-content-with-contentchild">Getting Access to ng-content with @ContentChild</span><a href="#getting-access-to-ng-content-with-contentchild" class="header-anchor">#</a></h4>
+<h4>Getting Access to ng-content with @ContentChild</h4>
 <ul>
 <li>add <code>@ViewChild</code> in <code>server-element.component.ts</code> will not work, because it is not part of the view, it is part of the content</li>
 <li>We also have ContentChild</li>
 </ul>
 <p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- app/app.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">app-server-element</span></span></span><br><span class="line"><span class="tag">  *<span class="attr">ngFor</span>=<span class="string">"let serverElement of serverElements"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">element</span>]=<span class="string">"serverElement"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">name</span>]=<span class="string">"serverElement.name"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> #<span class="attr">contentParagraph</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span> *<span class="attr">ngIf</span>=<span class="string">"serverElement.type === 'server'"</span> <span class="attr">style</span>=<span class="string">"color: red"</span>&gt;</span>&#123;&#123; serverElement.content &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">em</span> *<span class="attr">ngIf</span>=<span class="string">"serverElement.type === 'blueprint'"</span>&gt;</span>&#123;&#123; serverElement.content &#125;&#125;<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">app-server-element</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/server-element/server-element.component.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Component,</span><br><span class="line">  OnInit,</span><br><span class="line">  Input,</span><br><span class="line">  ViewEncapsulation,</span><br><span class="line">  AfterContentInit,</span><br><span class="line">  ViewChild,</span><br><span class="line">  ElementRef,</span><br><span class="line">  ContentChild</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-server-element"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./server-element.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./server-element.component.css"</span>],</span><br><span class="line">  encapsulation: ViewEncapsulation.Emulated <span class="comment">// None, Native</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ServerElementComponent <span class="keyword">implements</span> OnInit, AfterContentInit &#123;</span><br><span class="line">  <span class="meta">@Input</span>() element: &#123; <span class="keyword">type</span>: <span class="built_in">string</span>; name: <span class="built_in">string</span>; content: <span class="built_in">string</span> &#125;;</span><br><span class="line">  <span class="meta">@Input</span>() name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="meta">@ViewChild</span>(<span class="string">"heading"</span>) header: ElementRef;</span><br><span class="line">  <span class="meta">@ContentChild</span>(<span class="string">"contentParagraph"</span>) paragraph: ElementRef;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element constructor"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element onInit"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content in ngOnInit: "</span> + <span class="keyword">this</span>.header.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngOnInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngAfterContentInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"ngAfterContentInit called"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngAfterContentInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4><span id="component-lifecycle">Component Lifecycle</span><a href="#component-lifecycle" class="header-anchor">#</a></h4>
+<h4>Component Lifecycle</h4>
 <ul>
 <li>
 <p>Implement the method alone will do the trick, but it is a good practice to be very explicit about which interfaces you implement (this is true for all hooks)</p>
@@ -706,7 +706,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2><span id="tutorials-on-the-left">Tutorials On the left</span><a href="#tutorials-on-the-left" class="header-anchor">#</a></h2>
+        <h2>Tutorials On the left</h2>
 <ul>
 <li>
 <p>On the left, the <strong>tutorials</strong> refers to the tag, can <em>only display available</em> tags(tutorials <em>needs to</em> be there, otherwise will return 403)</p>
@@ -801,17 +801,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2><span id="quick-start">Quick Start</span><a href="#quick-start" class="header-anchor">#</a></h2>
-<h3><span id="create-a-new-post">Create a new post</span><a href="#create-a-new-post" class="header-anchor">#</a></h3>
+<h2>Quick Start</h2>
+<h3>Create a new post</h3>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3><span id="run-server">Run server</span><a href="#run-server" class="header-anchor">#</a></h3>
+<h3>Run server</h3>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3><span id="generate-static-files">Generate static files</span><a href="#generate-static-files" class="header-anchor">#</a></h3>
+<h3>Generate static files</h3>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span><a href="#deploy-to-remote-sites" class="header-anchor">#</a></h3>
+<h3>Deploy to remote sites</h3>
 <p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
