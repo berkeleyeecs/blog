@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="Table of Contents Basics What is TypeScript Using BootStrip How Angular App get loaded and started Components Module Data Binding Directive Model   Components &amp;amp; Databinding Property &amp;amp; Event Bi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T16:05:36.026Z">
+<meta property="og:updated_time" content="2019-05-13T16:07:14.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Tutorial">
 <meta name="twitter:description" content="Table of Contents Basics What is TypeScript Using BootStrip How Angular App get loaded and started Components Module Data Binding Directive Model   Components &amp;amp; Databinding Property &amp;amp; Event Bi">
@@ -191,7 +191,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Basics-Top"><a href="#Basics-Top" class="headerlink" title="Basics #Top"></a>Basics <a href="#Table-of-Contents">#Top</a></h3><h4 id="What-is-TypeScript-Top"><a href="#What-is-TypeScript-Top" class="headerlink" title="What is TypeScript #Top"></a>What is TypeScript <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h3 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h3><h4 id="What-is-TypeScript"><a href="#What-is-TypeScript" class="headerlink" title="What is TypeScript"></a>What is TypeScript</h4><ul>
 <li>More feature than JS (Types, Classes, Interfaces…)<ul>
 <li>check the time you write it</li>
 </ul>
@@ -209,10 +209,10 @@
 <li>Deployment</li>
 <li>Animation &amp; Testing</li>
 </ul>
-<h4 id="How-Angular-App-get-loaded-and-started-Top"><a href="#How-Angular-App-get-loaded-and-started-Top" class="headerlink" title="How Angular App get loaded and started #Top"></a>How Angular App get loaded and started <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="How-Angular-App-get-loaded-and-started"><a href="#How-Angular-App-get-loaded-and-started" class="headerlink" title="How Angular App get loaded and started"></a>How Angular App get loaded and started</h4><ul>
 <li>main.ts is the first to be executed</li>
 </ul>
-<h4 id="Using-BootStrip-Top"><a href="#Using-BootStrip-Top" class="headerlink" title="Using BootStrip #Top"></a>Using BootStrip <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Using-BootStrip"><a href="#Using-BootStrip" class="headerlink" title="Using BootStrip"></a>Using BootStrip</h4><ul>
 <li><p>install with <code>npm install --save bootstrap@3</code></p>
 <ul>
 <li>will install locally, and save in node module</li>
@@ -222,7 +222,7 @@
 
 </li>
 </ul>
-<h4 id="Components-Top"><a href="#Components-Top" class="headerlink" title="Components #Top"></a>Components <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h4><ul>
 <li><p>root component</p>
 </li>
 <li><p>a component is just a typescript class</p>
@@ -251,7 +251,7 @@
 <li><p>Selector by id is <strong><em>NOT</em></strong> supported</p>
 </li>
 </ul>
-<h4 id="Module-Top"><a href="#Module-Top" class="headerlink" title="Module #Top"></a>Module <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h4><ul>
 <li><p>bundle of functionalities of our app</p>
 </li>
 <li><p>gives angular info about which features does my app have and use</p>
@@ -259,7 +259,7 @@
 
 </li>
 </ul>
-<h4 id="Data-Binding-Top"><a href="#Data-Binding-Top" class="headerlink" title="Data Binding #Top"></a>Data Binding <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Data-Binding"><a href="#Data-Binding" class="headerlink" title="Data Binding"></a>Data Binding</h4><ul>
 <li><p>Data binding = communication</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// servers.component.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ServersComponent <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">  allowNewServer = <span class="literal">false</span>;</span><br><span class="line">  serverCreationStatus = <span class="string">'No server was created!'</span>;</span><br><span class="line">  serverName = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// some ES6 syntax here</span></span><br><span class="line">    <span class="comment">// if not using ES6, this will be in a different frame</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// after 2 seconds, allowNewServer will be switched to true</span></span><br><span class="line">      <span class="keyword">this</span>.allowNewServer = <span class="literal">true</span>;</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onCreateServer() &#123;</span><br><span class="line">    <span class="keyword">this</span>.serverCreationStatus = <span class="string">'Server was created!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onUpdateServerName(event: Event) &#123;</span><br><span class="line">    <span class="comment">// console.log(event);</span></span><br><span class="line">    <span class="keyword">this</span>.serverName = (event.target <span class="keyword">as</span> HTMLInputElement).value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -306,7 +306,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Directive-Top"><a href="#Directive-Top" class="headerlink" title="Directive #Top"></a>Directive <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Directive"><a href="#Directive" class="headerlink" title="Directive"></a>Directive</h4><ul>
 <li><p>Instructions in the DOM</p>
 </li>
 <li><p>Components: Directives with templates</p>
@@ -360,13 +360,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="Model-Top"><a href="#Model-Top" class="headerlink" title="Model #Top"></a>Model <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><ul>
 <li><p>name the file <code>XX.model.ts</code> (optional, but better to know what this file is about)</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// recipe.model.ts</span></span><br><span class="line"><span class="comment">// no need to add @</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> Recipe &#123;</span><br><span class="line">  <span class="comment">// explicitly tell ts that name is accessible to the public</span></span><br><span class="line">  <span class="keyword">public</span> name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">public</span> description: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">public</span> imagePath: <span class="built_in">string</span>;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, desc: <span class="built_in">string</span>, imagePath: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.description = desc;</span><br><span class="line">    <span class="keyword">this</span>.imagePath = imagePath;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Or a shortcut</span></span><br><span class="line"><span class="comment">// put shared file in a shared folder</span></span><br><span class="line"><span class="comment">// app/shared/ingredient.model.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> Ingredient &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">public</span> name: <span class="built_in">string</span>, <span class="keyword">public</span> amount: <span class="built_in">number</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h3 id="Components-and-Databinding-Top"><a href="#Components-and-Databinding-Top" class="headerlink" title="Components and Databinding #Top"></a>Components and Databinding <a href="#Table-of-Contents">#Top</a></h3><h4 id="Property-and-Event-Binding-Top"><a href="#Property-and-Event-Binding-Top" class="headerlink" title="Property and Event Binding #Top"></a>Property and Event Binding <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h3 id="Components-and-Databinding"><a href="#Components-and-Databinding" class="headerlink" title="Components and Databinding"></a>Components and Databinding</h3><h4 id="Property-and-Event-Binding"><a href="#Property-and-Event-Binding" class="headerlink" title="Property and Event Binding"></a>Property and Event Binding</h4><ul>
 <li><p>We can use property binding on</p>
 <ul>
 <li>HTML elements and their native properties and events</li>
@@ -411,7 +411,7 @@
 
 </li>
 </ul>
-<h4 id="CSS-and-View-Encapsulation-Top"><a href="#CSS-and-View-Encapsulation-Top" class="headerlink" title="CSS and View Encapsulation #Top"></a>CSS and View Encapsulation <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="CSS-and-View-Encapsulation"><a href="#CSS-and-View-Encapsulation" class="headerlink" title="CSS and View Encapsulation"></a>CSS and View Encapsulation</h4><ul>
 <li><p>By default, it does not care in which css file you define a rule. It is applied to the whole document normally</p>
 </li>
 <li><p>Angular: Whichever style get defined in a css file, it will only get applied to the component they belong to</p>
@@ -425,7 +425,7 @@
 
 </li>
 </ul>
-<h4 id="Using-local-reference-in-Templates-Top"><a href="#Using-local-reference-in-Templates-Top" class="headerlink" title="Using local reference in Templates #Top"></a>Using local reference in Templates <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Using-local-reference-in-Templates"><a href="#Using-local-reference-in-Templates" class="headerlink" title="Using local reference in Templates"></a>Using local reference in Templates</h4><ul>
 <li><p>a local reference can be placed on any HTML</p>
 </li>
 <li><p>add with a hashtag (<code>#</code>), and the name of your choice</p>
@@ -441,7 +441,7 @@
 
 </li>
 </ul>
-<h4 id="Getting-Access-to-Template-and-DOM-with-ViewChild-Top"><a href="#Getting-Access-to-Template-and-DOM-with-ViewChild-Top" class="headerlink" title="Getting Access to Template and DOM with @ViewChild #Top"></a>Getting Access to Template and DOM with @ViewChild <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Getting-Access-to-Template-and-DOM-with-ViewChild"><a href="#Getting-Access-to-Template-and-DOM-with-ViewChild" class="headerlink" title="Getting Access to Template and DOM with @ViewChild"></a>Getting Access to Template and DOM with @ViewChild</h4><ul>
 <li>&lt;input type=”text” #serverNameInput&gt;</li>
 <li>import <code>@ViewChild</code> from <code>@angular/core</code></li>
 <li>pass the selector (the name of the local reference) into ViewChild</li>
@@ -465,7 +465,7 @@
 
 </li>
 </ul>
-<h4 id="Getting-Access-to-ng-content-with-ContentChild-Top"><a href="#Getting-Access-to-ng-content-with-ContentChild-Top" class="headerlink" title="Getting Access to ng-content with @ContentChild #Top"></a>Getting Access to ng-content with @ContentChild <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Getting-Access-to-ng-content-with-ContentChild"><a href="#Getting-Access-to-ng-content-with-ContentChild" class="headerlink" title="Getting Access to ng-content with @ContentChild"></a>Getting Access to ng-content with @ContentChild</h4><ul>
 <li>add <code>@ViewChild</code> in <code>server-element.component.ts</code> will not work, because it is not part of the view, it is part of the content</li>
 <li>We also have ContentChild</li>
 </ul>
@@ -473,7 +473,7 @@
 
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/server-element/server-element.component.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Component,</span><br><span class="line">  OnInit,</span><br><span class="line">  Input,</span><br><span class="line">  ViewEncapsulation,</span><br><span class="line">  AfterContentInit,</span><br><span class="line">  ViewChild,</span><br><span class="line">  ElementRef,</span><br><span class="line">  ContentChild</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-server-element"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./server-element.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./server-element.component.css"</span>],</span><br><span class="line">  encapsulation: ViewEncapsulation.Emulated <span class="comment">// None, Native</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ServerElementComponent <span class="keyword">implements</span> OnInit, AfterContentInit &#123;</span><br><span class="line">  <span class="meta">@Input</span>() element: &#123; <span class="keyword">type</span>: <span class="built_in">string</span>; name: <span class="built_in">string</span>; content: <span class="built_in">string</span> &#125;;</span><br><span class="line">  <span class="meta">@Input</span>() name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="meta">@ViewChild</span>(<span class="string">"heading"</span>) header: ElementRef;</span><br><span class="line">  <span class="meta">@ContentChild</span>(<span class="string">"contentParagraph"</span>) paragraph: ElementRef;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element constructor"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element onInit"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content in ngOnInit: "</span> + <span class="keyword">this</span>.header.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngOnInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngAfterContentInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"ngAfterContentInit called"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngAfterContentInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="Component-Lifecycle-Top"><a href="#Component-Lifecycle-Top" class="headerlink" title="Component Lifecycle #Top"></a>Component Lifecycle <a href="#Table-of-Contents">#Top</a></h4><ul>
+<h4 id="Component-Lifecycle"><a href="#Component-Lifecycle" class="headerlink" title="Component Lifecycle"></a>Component Lifecycle</h4><ul>
 <li><p>Implement the method alone will do the trick, but it is a good practice to be very explicit about which interfaces you implement (this is true for all hooks)</p>
 </li>
 <li><p><code>ngOnChanges</code>: called after a bound input property (property decorated with @input) changes (may be executed multiple times)</p>
@@ -617,7 +617,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.</span> <span class="toc-text">Table of Contents</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basics-Top"><span class="toc-number">1.1.</span> <span class="toc-text">Basics #Top</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-TypeScript-Top"><span class="toc-number">1.1.1.</span> <span class="toc-text">What is TypeScript #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-Angular-App-get-loaded-and-started-Top"><span class="toc-number">1.1.2.</span> <span class="toc-text">How Angular App get loaded and started #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-BootStrip-Top"><span class="toc-number">1.1.3.</span> <span class="toc-text">Using BootStrip #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Components-Top"><span class="toc-number">1.1.4.</span> <span class="toc-text">Components #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Module-Top"><span class="toc-number">1.1.5.</span> <span class="toc-text">Module #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-Binding-Top"><span class="toc-number">1.1.6.</span> <span class="toc-text">Data Binding #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Directive-Top"><span class="toc-number">1.1.7.</span> <span class="toc-text">Directive #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Model-Top"><span class="toc-number">1.1.8.</span> <span class="toc-text">Model #Top</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Components-and-Databinding-Top"><span class="toc-number">1.2.</span> <span class="toc-text">Components and Databinding #Top</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Property-and-Event-Binding-Top"><span class="toc-number">1.2.1.</span> <span class="toc-text">Property and Event Binding #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-and-View-Encapsulation-Top"><span class="toc-number">1.2.2.</span> <span class="toc-text">CSS and View Encapsulation #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-local-reference-in-Templates-Top"><span class="toc-number">1.2.3.</span> <span class="toc-text">Using local reference in Templates #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Getting-Access-to-Template-and-DOM-with-ViewChild-Top"><span class="toc-number">1.2.4.</span> <span class="toc-text">Getting Access to Template and DOM with @ViewChild #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Getting-Access-to-ng-content-with-ContentChild-Top"><span class="toc-number">1.2.5.</span> <span class="toc-text">Getting Access to ng-content with @ContentChild #Top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Component-Lifecycle-Top"><span class="toc-number">1.2.6.</span> <span class="toc-text">Component Lifecycle #Top</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.</span> <span class="toc-text">Table of Contents</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basics"><span class="toc-number">1.1.</span> <span class="toc-text">Basics</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-TypeScript"><span class="toc-number">1.1.1.</span> <span class="toc-text">What is TypeScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-Angular-App-get-loaded-and-started"><span class="toc-number">1.1.2.</span> <span class="toc-text">How Angular App get loaded and started</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-BootStrip"><span class="toc-number">1.1.3.</span> <span class="toc-text">Using BootStrip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Components"><span class="toc-number">1.1.4.</span> <span class="toc-text">Components</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Module"><span class="toc-number">1.1.5.</span> <span class="toc-text">Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-Binding"><span class="toc-number">1.1.6.</span> <span class="toc-text">Data Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Directive"><span class="toc-number">1.1.7.</span> <span class="toc-text">Directive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Model"><span class="toc-number">1.1.8.</span> <span class="toc-text">Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Components-and-Databinding"><span class="toc-number">1.2.</span> <span class="toc-text">Components and Databinding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Property-and-Event-Binding"><span class="toc-number">1.2.1.</span> <span class="toc-text">Property and Event Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-and-View-Encapsulation"><span class="toc-number">1.2.2.</span> <span class="toc-text">CSS and View Encapsulation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-local-reference-in-Templates"><span class="toc-number">1.2.3.</span> <span class="toc-text">Using local reference in Templates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Getting-Access-to-Template-and-DOM-with-ViewChild"><span class="toc-number">1.2.4.</span> <span class="toc-text">Getting Access to Template and DOM with @ViewChild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Getting-Access-to-ng-content-with-ContentChild"><span class="toc-number">1.2.5.</span> <span class="toc-text">Getting Access to ng-content with @ContentChild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Component-Lifecycle"><span class="toc-number">1.2.6.</span> <span class="toc-text">Component Lifecycle</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -729,15 +729,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tutorials</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">abc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tutorials</a>
               </li>
             
             <div class="clearfix"></div>
