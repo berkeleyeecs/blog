@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="¶Table of Contents  Basics  What is TypeScript Using BootStrip How Angular App get loaded and started Components Module Data Binding Directive Model   Components &amp;amp; Databinding  Property &amp;amp; Even">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T16:22:24.073Z">
+<meta property="og:updated_time" content="2019-05-14T21:30:06.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Tutorial">
 <meta name="twitter:description" content="¶Table of Contents  Basics  What is TypeScript Using BootStrip How Angular App get loaded and started Components Module Data Binding Directive Model   Components &amp;amp; Databinding  Property &amp;amp; Even">
@@ -360,10 +360,14 @@
 <li>
 <p><code>ngIf</code></p>
 <ul>
-<li><code>*</code> is required</li>
-<li>Structural Directive -&gt; it changes the structure of our DOM</li>
-</ul>
+<li>
+<p><code>*</code> is required</p>
+</li>
+<li>
+<p>Structural Directive -&gt; it changes the structure of our DOM</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> *<span class="attr">ngIf</span>=<span class="string">"condition; else noServer"</span>&gt;</span>Text<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- else condition --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- # local reference --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- less common, usually just !condition with ngIf --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ng-template</span> #<span class="attr">noServer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Other Text</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 <li>
 <p><code>ngFor</code></p>
