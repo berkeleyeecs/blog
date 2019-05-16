@@ -146,6 +146,420 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Aws-Lambda-and-Serverless" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/05/15/Aws-Lambda-and-Serverless/">AWS Lambda and Serverless</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2019/05/15/Aws-Lambda-and-Serverless/" class="archive-article-date">
+  	<time datetime="2019-05-15T16:09:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="table-of-contents"><a class="header-anchor" href="#table-of-contents">¶</a>Table of Contents</h2>
+<h3 id="what-is-aws"><a class="header-anchor" href="#what-is-aws">¶</a>What is AWS</h3>
+<ul>
+<li>A Cloud Provider
+<ul>
+<li>provide you with servers and services that you can use <strong><em>on demand</em></strong> and <strong><em>scale easily</em></strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="why-aws-lambda"><a class="header-anchor" href="#why-aws-lambda">¶</a>Why AWS Lambda</h3>
+<ul>
+<li>
+<p>Amazon EC2 (servers)</p>
+<ul>
+<li>Virtual Servers in the Cloud</li>
+<li>Limited by RAM and CPU</li>
+<li>Continuously running</li>
+<li>Scaling means intervention to add/remove servers</li>
+</ul>
+</li>
+<li>
+<p>Amazon Lambda (server<em>less</em>)</p>
+<ul>
+<li>Virtual <strong>functions</strong> - no servers to manage</li>
+<li>Limited by time - short executions</li>
+<li>Run on-demand</li>
+<li>Scaling is automated</li>
+</ul>
+</li>
+<li>
+<p>Benefits</p>
+<ul>
+<li>Easy Pricing
+<ul>
+<li>pay per request and compute time</li>
+</ul>
+</li>
+<li>Integrated with the whole AWS Stack</li>
+<li>Integrated with many programming language</li>
+<li>Easy monitoring through AWS CloudWatch</li>
+<li>Easy to get more resources per functions (As of April 2019, from 128 MB to 3,008 MB, 64 MB increments)</li>
+<li>Increasing RAM will also improve CPU and network</li>
+</ul>
+</li>
+</ul>
+<h3 id="aws-lambda-languages"><a class="header-anchor" href="#aws-lambda-languages">¶</a>AWS Lambda Languages</h3>
+<ul>
+<li>aws-nodejs</li>
+<li>aws-python</li>
+<li>aws-python3</li>
+<li>aws-groovy-gradle</li>
+<li>aws-java-gradle</li>
+<li>aws-java-maven</li>
+<li>aws-scala-sbt</li>
+<li>aws-csharp</li>
+<li>…</li>
+</ul>
+<h3 id="aws-lambda-integration-main-ones"><a class="header-anchor" href="#aws-lambda-integration-main-ones">¶</a>AWS Lambda Integration Main ones</h3>
+<ul>
+<li>API gateway
+<ul>
+<li>provide API for users directly to your functions (REST API)</li>
+</ul>
+</li>
+<li>Kinesis
+<ul>
+<li>Real time streaming of data</li>
+<li>can have lambda function that process data as it arrive in streams</li>
+</ul>
+</li>
+<li>DynamoDB
+<ul>
+<li>a NoSQL database from Amazon</li>
+<li>can store data in your states in DynamoDB</li>
+</ul>
+</li>
+<li>AWS S3 (<strong>S</strong>imple <strong>S</strong>torage <strong>S</strong>ervice)
+<ul>
+<li>store big objects/files (e.g. images) for a long time</li>
+</ul>
+</li>
+<li>AWS IOT (Internet of Things)</li>
+<li>CloudWatch Events
+<ul>
+<li>Things run on scheduler or cronjob</li>
+</ul>
+</li>
+<li>CloudWatch Log
+<ul>
+<li>Do some analysis on streaming logs</li>
+</ul>
+</li>
+<li>AWS SNS (Simple Notification Service)
+<ul>
+<li>Notify users of anything, and send them emails</li>
+</ul>
+</li>
+<li>AWS Cognito
+<ul>
+<li>if need user integration</li>
+<li>controls user authentication and access for mobile applications on internet-connected devices</li>
+</ul>
+</li>
+</ul>
+<h3 id="example-thumbnail-creation"><a class="header-anchor" href="#example-thumbnail-creation">¶</a>Example: Thumbnail Creation</h3>
+<ul>
+<li>You have a S3 bucket</li>
+<li>There’s a new image in S3 (you want to create a thumbnail)</li>
+<li>S3 bucket triggers (new event trigger) AWS Lambda Function to create a Thumbnail (function only triggered when there is a new image)</li>
+<li>Once function is done, push the thumbnail to S3, and push some metadata to DynamoDB (image name, size. creation date, etc.)</li>
+</ul>
+<h3 id="about-serverless"><a class="header-anchor" href="#about-serverless">¶</a>About Serverless</h3>
+<ul>
+<li>Serverless Framework aims to ease the pain of <strong><em>creating, deploying, managing</em></strong> and <strong><em>debugging</em></strong> Lambda function</li>
+<li>provides a programmatic interface that’s much nicer than the AWS console</li>
+<li>All using programming (no manual click in the AWS console)</li>
+<li>It integrates well with CI/CD (Continuous Integration/Continuous Delivery) tools</li>
+<li>It has CloudFormation support so your entire stack can be deployed using this Framework (does not need to reinvent the wheel)
+<ul>
+<li>CloudFormation is a way to deploy your AWS infrastructure and architecture using a template</li>
+</ul>
+</li>
+</ul>
+<h3 id="installing-serverless"><a class="header-anchor" href="#installing-serverless">¶</a>Installing Serverless</h3>
+<ul>
+<li>Install node</li>
+<li>Install serverless
+<ul>
+<li><code>npm install -g serverless</code></li>
+<li>Go to IAM (Identity and Access Management)
+<ul>
+<li>add a user
+<ul>
+<li>username: serverless-admin</li>
+<li>access type: programmatic access</li>
+<li>permission:
+<ul>
+<li>Attach existing policies directly
+<ul>
+<li>AdministratorAccess</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Setup Serverless
+<ul>
+<li><code>serverless config credentials --provider aws --key [AccessKey] --secret [SecretAccessKey] --profile [username]</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="serverless-hello-world"><a class="header-anchor" href="#serverless-hello-world">¶</a>Serverless Hello World</h3>
+<ul>
+<li>
+<p><code>serverless</code> or <code>sls</code> for shortcut</p>
+</li>
+<li>
+<p><code>sls create --template [template] --path [name]</code></p>
+</li>
+<li>
+<p>As of May 2019, templates available are: “aws-clojure-gradle”, “aws-clojurescript-gradle”, “aws-nodejs”, “aws-nodejs-typescript”, “aws-alexa-typescript”, “aws-nodejs-ecma-script”, “aws-python”, “aws-python3”, “aws-groovy-gradle”, “aws-java-maven”, “aws-java-gradle”, “aws-kotlin-jvm-maven”, “aws-kotlin-jvm-gradle”, “aws-kotlin-nodejs-gradle”, “aws-scala-sbt”, “aws-csharp”, “aws-fsharp”, “aws-go”, “aws-go-dep”, “aws-go-mod”, “aws-ruby”, “aws-provided”, “azure-nodejs”, “cloudflare-workers”, “cloudflare-workers-enterprise”, “cloudflare-workers-rust”, “fn-nodejs”, “fn-go”, “google-nodejs”, “google-python”, “google-go”, “kubeless-python”, “kubeless-nodejs”, “openwhisk-java-maven”, “openwhisk-nodejs”, “openwhisk-php”, “openwhisk-python”, “openwhisk-ruby”, “openwhisk-swift”, “spotinst-nodejs”, “spotinst-python”, “spotinst-ruby”, “spotinst-java8”, “plugin” and “hello-world”</p>
+</li>
+<li>
+<p><code>sls create --template aws-python --path hello-world-python</code></p>
+</li>
+<li>
+<p><code>cd hello-world-python</code> (shows 3 file: <code>.gitignore</code>, <code>handler.py</code>, <code>serverless.yml</code>)</p>
+</li>
+<li>
+<p>Change files accordingly</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># handler.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(event, context)</span>:</span></span><br><span class="line">  print(<span class="string">"Hi!"</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"hello-world"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># serverless.yml</span></span><br><span class="line"><span class="attr">service:</span> <span class="string">hello-world-python</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line">  <span class="comment"># add profile: [username]</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-admin</span></span><br><span class="line">  <span class="comment"># add region (can be read from url)</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Deploy <code>sls deploy -v</code> (first time or add dependencies etc.)</p>
+</li>
+<li>
+<p>Running the function from CLI</p>
+<ul>
+<li><code>sls invoke -f hello -l</code> (-f: function; -l: get logs out)</li>
+</ul>
+</li>
+<li>
+<p>Deploy the function without deploying the entire stack (just update functions)</p>
+<ul>
+<li><code>sls deploy function -f hello</code></li>
+</ul>
+</li>
+<li>
+<p>Fetching function logs</p>
+<ul>
+<li><code>sls logs -f hello -t</code> (-f: function (<strong>required</strong>); -t: You can optionally tail the logs and keep listening for new logs in your terminal session)</li>
+</ul>
+</li>
+</ul>
+<h3 id="destroying-the-service"><a class="header-anchor" href="#destroying-the-service">¶</a>Destroying the Service</h3>
+<ul>
+<li>Manual Clean up
+<ul>
+<li>Function</li>
+<li>Dependencies of the function</li>
+<li>CloudWatch Log groups</li>
+<li>IAM Roles</li>
+<li>Everything else the framework has created</li>
+</ul>
+</li>
+<li>Serverless solves those problems for us
+<ul>
+<li><code>sls remove</code> removes everything</li>
+</ul>
+</li>
+</ul>
+<h3 id="yaml"><a class="header-anchor" href="#yaml">¶</a>YAML</h3>
+<ul>
+<li>
+<p>Top of each YAML file, usually want to have <code>---</code> to show where it begins</p>
+</li>
+<li>
+<p>JSON is a subset of YAML</p>
+</li>
+<li>
+<p>YAML is a markup language used to edit <code>serverless.yml</code> file</p>
+</li>
+<li>
+<p>Key value pair</p>
+</li>
+<li>
+<p>Nested Object (because there is <code>tab</code>)</p>
+</li>
+<li>
+<p>Support Arrays (<code>-</code>)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">product:</span></span><br><span class="line"><span class="attr">  - sku:</span> <span class="string">BL394D</span></span><br><span class="line"><span class="attr">    quantity:</span> <span class="number">4</span></span><br><span class="line"><span class="attr">    description:</span> <span class="string">Basketball</span></span><br><span class="line"><span class="attr">    price:</span> <span class="number">450.00</span></span><br><span class="line"><span class="attr">  - sku:</span> <span class="string">BL4438H</span></span><br><span class="line"><span class="attr">    quantity:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">    description:</span> <span class="string">Super</span> <span class="string">Hoop</span></span><br><span class="line"><span class="attr">    price:</span> <span class="number">2392.00</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Multiple line string (<code>|</code> means the value is multi line)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">bill-to:</span></span><br><span class="line"><span class="attr">  given:</span> <span class="string">John</span></span><br><span class="line"><span class="attr">  family:</span> <span class="string">Doe</span></span><br><span class="line"><span class="attr">  address:</span></span><br><span class="line"><span class="attr">    lines:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      1234 Walkman Dr.</span></span><br><span class="line"><span class="string">      Suite 5678</span></span><br><span class="line"><span class="string"></span><span class="attr">    city:</span> <span class="string">Oakland</span></span><br><span class="line"><span class="attr">    state:</span> <span class="string">CA</span></span><br><span class="line"><span class="attr">    postal:</span> <span class="number">94611</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>One line written in multiple line (<code>&lt;</code> means the value although written in separate lines, is actually 1 line)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">comments:</span> <span class="string">&gt;</span></span><br><span class="line"><span class="string">  Late afternoon is best.</span></span><br><span class="line"><span class="string">  Backup contact is Nancy</span></span><br><span class="line"><span class="string">  ABC @ 338-4338.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Can put quote <code>&quot;&quot;</code> for values, but without quotes, it still understand it’s string</p>
+</li>
+</ul>
+<h3 id="aws-function-timeout-and-memory"><a class="header-anchor" href="#aws-function-timeout-and-memory">¶</a>AWS Function Timeout and Memory</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">hello-world-python</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line">  <span class="comment"># add profile: [username]</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line">  <span class="comment"># add region (can be read from url)</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line">  <span class="comment"># memorySize: 128</span></span><br><span class="line">  <span class="comment"># timeout: 3</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-short-timeout:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">    memorySize:</span> <span class="number">128</span></span><br><span class="line"><span class="attr">    timeout:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">  hello-long-timeout:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">    memorySize:</span> <span class="number">256</span></span><br><span class="line"><span class="attr">    timeout:</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(event, context)</span>:</span></span><br><span class="line">  print(<span class="string">"Hi!"</span>)</span><br><span class="line">  time.sleep(<span class="number">4</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"hello-world"</span></span><br></pre></td></tr></table></figure>
+<h3 id="iam-permissions-for-lambda-functions"><a class="header-anchor" href="#iam-permissions-for-lambda-functions">¶</a>IAM Permissions for Lambda Functions</h3>
+<ul>
+<li>Our lambda functions access other services
+<ul>
+<li>S3 to store images</li>
+<li>DynamoDB to store and retrieve data</li>
+</ul>
+</li>
+<li>By default, Lambda functions are not authorized to do that
+<ul>
+<li>has to explicitly authorize those to get permission</li>
+</ul>
+</li>
+<li>Solution: We provide an IAM policy</li>
+<li>IAM allows you to entirely secure your AWS Setup</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-example-iam</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr">  iamRoleStatements:</span></span><br><span class="line"><span class="attr">    - Effect:</span> <span class="string">"Allow"</span></span><br><span class="line"><span class="attr">      Action:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"lambda:*"</span></span><br><span class="line">        <span class="comment"># give right for api calls to everything in lambda</span></span><br><span class="line"><span class="attr">      Resource:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"*"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-short-timeout:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="comment"># AWS SDK for python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(event, context)</span>:</span></span><br><span class="line">    client = boto3.client(<span class="string">'lambda'</span>)</span><br><span class="line">    response = client.list_functions()</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
+<h3 id="environment-variable"><a class="header-anchor" href="#environment-variable">¶</a>Environment Variable</h3>
+<ul>
+<li>python: use <code>os.environ['ENV_VAR_NAME']</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-example-env</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr">  environment:</span></span><br><span class="line"><span class="attr">    variable1:</span> <span class="string">value1</span></span><br><span class="line"><span class="attr">    variable2:</span> <span class="string">value2</span></span><br><span class="line"><span class="attr">    FIRST_NAME:</span> <span class="string">"John"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-env-john:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">  hello-env-marc:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line">    <span class="comment"># environment variable can be override</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      FIRST_NAME:</span> <span class="string">"Marc"</span></span><br></pre></td></tr></table></figure>
+<h3 id="vpc-for-lambda-functions"><a class="header-anchor" href="#vpc-for-lambda-functions">¶</a>VPC for Lambda Functions</h3>
+<ul>
+<li>VPC: Virtual Private Cloud
+<ul>
+<li>made of Subnets</li>
+<li>many companies use VPC to privately deploy their application</li>
+</ul>
+</li>
+<li>By default, your Lambda function rely out of your private network, so it cannot access your private resources</li>
+<li>You can launch Lambda in your VPC
+<ul>
+<li>Your Lambda functions can securely access your EC2 instances</li>
+<li>Your Lambda functions can securely access your RDS instances</li>
+<li>Any other instance in your VPC</li>
+</ul>
+</li>
+<li>You can assign security groups to your Lambda functions as well for enhanced network security
+<ul>
+<li>control what they can/cannot do or access on which port or so on</li>
+</ul>
+</li>
+<li>You can choose to deploy your Lambda function in any subnets you like</li>
+<li>This will allow your Lambda function to inherit a private IP from that subnet</li>
+<li>get <code>subnetId</code> from AWS -&gt; VPC -&gt; Subnets</li>
+<li>get/create <code>securityGroupId</code> from AWS -&gt; VPC -&gt; Security Groups</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-example-vpc</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr">  vpc:</span></span><br><span class="line"><span class="attr">    securityGroupIds:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">securityGroupId1</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">securityGroupId2</span></span><br><span class="line"><span class="attr">    subnetIds:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">subnetId1</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">subnetId2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Can also set VPC parameter at function level</span></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-vpc:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  hello-env-vpc-fun-level:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">    vpc:</span></span><br><span class="line"><span class="attr">      securityGroupIds:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">securityGroupId4</span></span><br><span class="line"><span class="attr">      subnetIds:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">subnetId4</span></span><br></pre></td></tr></table></figure>
+<h3 id="real-world-example-thumbnail-service"><a class="header-anchor" href="#real-world-example-thumbnail-service">¶</a>Real World Example - Thumbnail Service</h3>
+<ul>
+<li>To build Thumbnail Service, we need
+<ul>
+<li>S3 events</li>
+<li>Function timeouts and memory</li>
+<li>IAM Permissions</li>
+<li>Plugins to deploy python dependencies</li>
+<li>Custom Variable</li>
+<li>Environment Variables</li>
+</ul>
+</li>
+<li>Install docker</li>
+<li>install plugin: <code>npm install --save serverless-python-requirements</code></li>
+<li>deploy: <code>sls deploy -v</code></li>
+<li>To Do:
+<ul>
+<li>Handle errors
+<ul>
+<li>corrupted images</li>
+<li>no image files</li>
+</ul>
+</li>
+<li>make sure we correctly measure timeout (try different timeout)</li>
+<li>Do not create a thumbnail if the image is too big</li>
+<li>build alerting using AWS SNS if an image is not successfully processed</li>
+<li>Put and create image metadata in DynamoDB (the metadata you want, like when the image was created, what’s the size, what’s the format, what’s the thumbnail, etc.)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># requirements.txt</span><br><span class="line">Pillow</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-s3-thumbnail</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr"> name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr"> runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr"> profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr"> region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr"> timeout:</span> <span class="number">10</span></span><br><span class="line"><span class="attr"> memorySize:</span> <span class="number">128</span></span><br><span class="line"><span class="attr"> iamRoleStatements:</span></span><br><span class="line"> <span class="comment"># allow function to do anything with S3</span></span><br><span class="line"><span class="attr">  - Effect:</span> <span class="string">"Allow"</span></span><br><span class="line"><span class="attr">    Action:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"s3:*"</span></span><br><span class="line"><span class="attr">    Resource:</span> <span class="string">"*"</span></span><br><span class="line"><span class="attr"> environment:</span></span><br><span class="line"><span class="attr">   THUMBNAIL_SIZE:</span> <span class="string">"128"</span></span><br><span class="line">   <span class="comment"># 128 in pixels</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">custom:</span></span><br><span class="line"><span class="attr"> bucket:</span> <span class="string">clark-s3-thumbnail-generator</span></span><br><span class="line"><span class="attr"> pythonRequirements:</span></span><br><span class="line">   <span class="comment"># run in docker</span></span><br><span class="line"><span class="attr">   dockerizePip:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr"> s3-thumbnail-generator:</span></span><br><span class="line"><span class="attr">   handler:</span> <span class="string">handler.s3_thumbnail_generator</span></span><br><span class="line"><span class="attr">   events:</span></span><br><span class="line">   <span class="comment"># event:</span></span><br><span class="line">   <span class="comment"># it comes form a bucket,</span></span><br><span class="line">   <span class="comment"># and the event is an object has been created,</span></span><br><span class="line">   <span class="comment"># and the object ends by png,</span></span><br><span class="line">   <span class="comment"># then we will trigger the function</span></span><br><span class="line"><span class="attr">     - s3:</span></span><br><span class="line"><span class="attr">         bucket:</span> <span class="string">$&#123;self:custom.bucket&#125;</span></span><br><span class="line">         <span class="comment"># here is a variable $&#123;self: reference&#125;</span></span><br><span class="line">         <span class="comment"># it will look into the self document,</span></span><br><span class="line">         <span class="comment"># find custom key, and pick the value for bucket</span></span><br><span class="line">         <span class="comment"># we use variable here for reuse</span></span><br><span class="line"><span class="attr">         event:</span> <span class="attr">s3:ObjectCreated:*</span></span><br><span class="line"><span class="attr">         rules:</span></span><br><span class="line"><span class="attr">           - suffix:</span> <span class="string">.png</span></span><br><span class="line"></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line"> <span class="comment"># install plugin first</span></span><br><span class="line"> <span class="comment"># npm install --save serverless-python-requirements</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">serverless-python-requirements</span></span><br><span class="line"> <span class="comment"># it will instead everything in the requirement.txt</span></span><br><span class="line"> <span class="comment"># it uses docker</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="keyword">import</span> cStringIO</span><br><span class="line"><span class="comment"># pip install Pillow</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageOps</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># boto3 is meant to use with AWS services</span></span><br><span class="line">s3 = boto3.client(<span class="string">'s3'</span>)</span><br><span class="line">size = int(os.environ[<span class="string">'THUMBNAIL_SIZE'</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">s3_thumbnail_generator</span><span class="params">(event, context)</span>:</span></span><br><span class="line">   <span class="comment"># parse event</span></span><br><span class="line">   print(event)</span><br><span class="line">   <span class="comment"># &#123;'Records': [&#123;'eventVersion': '2.1', 'eventTime': '2019-05-16T20:11:48.436Z', 'requestParameters': &#123;'sourceIPAddress': '206.160.213.245'&#125;, 's3': &#123;'configurationId': 'd0aa94a0-c481-409e-837a-b6ae07da9226', 'object': &#123;'eTag': 'e40ba443d96bc5efa3e90539fbcc2153', 'sequencer': '005CDDC40454CF3D9D', 'key': 'Shiro_the_Kagoneko.png', 'size': 2429979&#125;, 'bucket': &#123;'arn': 'arn:aws:s3:::clark-s3-thumbnail-generator', 'name': 'clark-s3-thumbnail-generator', 'ownerIdentity': &#123;'principalId': 'A2XD0XXXX8LII'&#125;&#125;, 's3SchemaVersion': '1.0'&#125;, 'responseElements': &#123;'x-amz-id-2': 'PQbZpUGqrZXdlGOIpQ15w9aMVUqAQ4VhD/IqOhL9QlUhkH0SQzm8rusfgrobi+hvbrYNtapVZNA=', 'x-amz-request-id': 'ED26AD0D9A70F876'&#125;, 'awsRegion': 'us-east-2', 'eventName': 'ObjectCreated:Put', 'userIdentity': &#123;'principalId': 'A2XD0XXXX8LII'&#125;, 'eventSource': 'aws:s3'&#125;]&#125;</span></span><br><span class="line">   bucket = event[<span class="string">'Records'</span>][<span class="number">0</span>][<span class="string">'s3'</span>][<span class="string">'bucket'</span>][<span class="string">'name'</span>]</span><br><span class="line">   key = event[<span class="string">'Records'</span>][<span class="number">0</span>][<span class="string">'s3'</span>][<span class="string">'object'</span>][<span class="string">'key'</span>]</span><br><span class="line">   <span class="comment"># only create a thumbnail on non thumbnail pictures</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">not</span> key.endswith(<span class="string">"_thumbnail.png"</span>)):</span><br><span class="line">       <span class="comment"># get the image</span></span><br><span class="line">       image = get_s3_image(bucket, key)</span><br><span class="line">       <span class="comment"># resize the image</span></span><br><span class="line">       thumbnail = image_to_thumbnail(image)</span><br><span class="line">       <span class="comment"># get the new filename</span></span><br><span class="line">       thumbnail_key = new_filename(key)</span><br><span class="line">       <span class="comment"># upload the file</span></span><br><span class="line">       url = upload_to_s3(bucket, thumbnail_key, thumbnail)</span><br><span class="line">       <span class="keyword">return</span> url</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_s3_image</span><span class="params">(bucket, key)</span>:</span></span><br><span class="line">   response = s3.get_object(Bucket=bucket, Key=key)</span><br><span class="line">   imagecontent = response[<span class="string">'Body'</span>].read()</span><br><span class="line"></span><br><span class="line">   file = cStringIO.StringIO(imagecontent)</span><br><span class="line">   img = Image.open(file)</span><br><span class="line">   <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">image_to_thumbnail</span><span class="params">(image)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> ImageOps.fit(image, (size, size), Image.ANTIALIAS)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_filename</span><span class="params">(key)</span>:</span></span><br><span class="line">   key_split = key.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)</span><br><span class="line">   <span class="keyword">return</span> key_split[<span class="number">0</span>] + <span class="string">"_thumbnail.png"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_to_s3</span><span class="params">(bucket, key, image)</span>:</span></span><br><span class="line">   <span class="comment"># We're saving the image into a cStringIO object to avoid writing to disk</span></span><br><span class="line">   out_thumbnail = cStringIO.StringIO()</span><br><span class="line">   <span class="comment"># You MUST specify the file type because there is no file name to discern</span></span><br><span class="line">   <span class="comment"># it from</span></span><br><span class="line">   image.save(out_thumbnail, <span class="string">'PNG'</span>)</span><br><span class="line">   out_thumbnail.seek(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">   response = s3.put_object(</span><br><span class="line">       ACL=<span class="string">'public-read'</span>,</span><br><span class="line">       Body=out_thumbnail,</span><br><span class="line">       Bucket=bucket,</span><br><span class="line">       ContentType=<span class="string">'image/png'</span>,</span><br><span class="line">       Key=key</span><br><span class="line">   )</span><br><span class="line">   print(response)</span><br><span class="line"></span><br><span class="line">   url = <span class="string">'&#123;&#125;/&#123;&#125;/&#123;&#125;'</span>.format(s3.meta.endpoint_url, bucket, key)</span><br><span class="line">   <span class="keyword">return</span> url</span><br></pre></td></tr></table></figure>
+<h3 id="real-world-example-rest-api"><a class="header-anchor" href="#real-world-example-rest-api">¶</a>Real World Example - REST API</h3>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tutorials</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">aws</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2019/05/15/Aws-Lambda-and-Serverless/">Show All >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Angular-Tutorial" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -588,6 +1002,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tutorials</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -976,6 +1394,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tutorials</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Tutorials</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">aws</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
               </li>
             
             <div class="clearfix"></div>
