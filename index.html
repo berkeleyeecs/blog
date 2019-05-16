@@ -166,9 +166,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!--toc-->
-<h2><span id="ptable-of-contents">Table of Contents</span><a href="#ptable-of-contents" class="header-anchor">#</a></h2>
-<h3><span id="pwhat-is-aws">What is AWS</span><a href="#pwhat-is-aws" class="header-anchor">#</a></h3>
+        <h2><span id="table-of-contents">Table of Contents</span></h2>
+<h3><span id="what-is-aws">What is AWS</span></h3>
 <ul>
 <li>A Cloud Provider
 <ul>
@@ -176,7 +175,7 @@
 </ul>
 </li>
 </ul>
-<h3><span id="pwhy-aws-lambda">Why AWS Lambda</span><a href="#pwhy-aws-lambda" class="header-anchor">#</a></h3>
+<h3><span id="why-aws-lambda">Why AWS Lambda</span></h3>
 <ul>
 <li>
 <p>Amazon EC2 (servers)</p>
@@ -212,7 +211,7 @@
 </ul>
 </li>
 </ul>
-<h3><span id="paws-lambda-languages">AWS Lambda Languages</span><a href="#paws-lambda-languages" class="header-anchor">#</a></h3>
+<h3><span id="aws-lambda-languages">AWS Lambda Languages</span></h3>
 <ul>
 <li>aws-nodejs</li>
 <li>aws-python</li>
@@ -224,7 +223,7 @@
 <li>aws-csharp</li>
 <li>…</li>
 </ul>
-<h3><span id="paws-lambda-integration-main-ones">AWS Lambda Integration Main ones</span><a href="#paws-lambda-integration-main-ones" class="header-anchor">#</a></h3>
+<h3><span id="aws-lambda-integration-main-ones">AWS Lambda Integration Main ones</span></h3>
 <ul>
 <li>API gateway
 <ul>
@@ -271,14 +270,14 @@
 </ul>
 </li>
 </ul>
-<h3><span id="pexample-thumbnail-creation">Example: Thumbnail Creation</span><a href="#pexample-thumbnail-creation" class="header-anchor">#</a></h3>
+<h3><span id="example-thumbnail-creation">Example: Thumbnail Creation</span></h3>
 <ul>
 <li>You have a S3 bucket</li>
 <li>There’s a new image in S3 (you want to create a thumbnail)</li>
 <li>S3 bucket triggers (new event trigger) AWS Lambda Function to create a Thumbnail (function only triggered when there is a new image)</li>
 <li>Once function is done, push the thumbnail to S3, and push some metadata to DynamoDB (image name, size. creation date, etc.)</li>
 </ul>
-<h3><span id="pabout-serverless">About Serverless</span><a href="#pabout-serverless" class="header-anchor">#</a></h3>
+<h3><span id="about-serverless">About Serverless</span></h3>
 <ul>
 <li>Serverless Framework aims to ease the pain of <strong><em>creating, deploying, managing</em></strong> and <strong><em>debugging</em></strong> Lambda function</li>
 <li>provides a programmatic interface that’s much nicer than the AWS console</li>
@@ -290,7 +289,7 @@
 </ul>
 </li>
 </ul>
-<h3><span id="pinstalling-serverless">Installing Serverless</span><a href="#pinstalling-serverless" class="header-anchor">#</a></h3>
+<h3><span id="installing-serverless">Installing Serverless</span></h3>
 <ul>
 <li>Install node</li>
 <li>Install serverless
@@ -323,7 +322,7 @@
 </ul>
 </li>
 </ul>
-<h3><span id="pserverless-hello-world">Serverless Hello World</span><a href="#pserverless-hello-world" class="header-anchor">#</a></h3>
+<h3><span id="serverless-hello-world">Serverless Hello World</span></h3>
 <ul>
 <li>
 <p><code>serverless</code> or <code>sls</code> for shortcut</p>
@@ -367,7 +366,7 @@
 </ul>
 </li>
 </ul>
-<h3><span id="pdestroying-the-service">Destroying the Service</span><a href="#pdestroying-the-service" class="header-anchor">#</a></h3>
+<h3><span id="destroying-the-service">Destroying the Service</span></h3>
 <ul>
 <li>Manual Clean up
 <ul>
@@ -384,7 +383,7 @@
 </ul>
 </li>
 </ul>
-<h3><span id="pyaml">YAML</span><a href="#pyaml" class="header-anchor">#</a></h3>
+<h3><span id="yaml">YAML</span></h3>
 <ul>
 <li>
 <p>Top of each YAML file, usually want to have <code>---</code> to show where it begins</p>
@@ -417,10 +416,10 @@
 <p>Can put quote <code>&quot;&quot;</code> for values, but without quotes, it still understand it’s string</p>
 </li>
 </ul>
-<h3><span id="paws-function-timeout-and-memory">AWS Function Timeout and Memory</span><a href="#paws-function-timeout-and-memory" class="header-anchor">#</a></h3>
+<h3><span id="aws-function-timeout-and-memory">AWS Function Timeout and Memory</span></h3>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">hello-world-python</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line">  <span class="comment"># add profile: [username]</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line">  <span class="comment"># add region (can be read from url)</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line">  <span class="comment"># memorySize: 128</span></span><br><span class="line">  <span class="comment"># timeout: 3</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-short-timeout:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">    memorySize:</span> <span class="number">128</span></span><br><span class="line"><span class="attr">    timeout:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">  hello-long-timeout:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">    memorySize:</span> <span class="number">256</span></span><br><span class="line"><span class="attr">    timeout:</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(event, context)</span>:</span></span><br><span class="line">  print(<span class="string">"Hi!"</span>)</span><br><span class="line">  time.sleep(<span class="number">4</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"hello-world"</span></span><br></pre></td></tr></table></figure>
-<h3><span id="piam-permissions-for-lambda-functions">IAM Permissions for Lambda Functions</span><a href="#piam-permissions-for-lambda-functions" class="header-anchor">#</a></h3>
+<h3><span id="iam-permissions-for-lambda-functions">IAM Permissions for Lambda Functions</span></h3>
 <ul>
 <li>Our lambda functions access other services
 <ul>
@@ -438,12 +437,12 @@
 </ul>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-example-iam</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr">  iamRoleStatements:</span></span><br><span class="line"><span class="attr">    - Effect:</span> <span class="string">"Allow"</span></span><br><span class="line"><span class="attr">      Action:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"lambda:*"</span></span><br><span class="line">        <span class="comment"># give right for api calls to everything in lambda</span></span><br><span class="line"><span class="attr">      Resource:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"*"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-short-timeout:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="comment"># AWS SDK for python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(event, context)</span>:</span></span><br><span class="line">    client = boto3.client(<span class="string">'lambda'</span>)</span><br><span class="line">    response = client.list_functions()</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
-<h3><span id="penvironment-variable">Environment Variable</span><a href="#penvironment-variable" class="header-anchor">#</a></h3>
+<h3><span id="environment-variable">Environment Variable</span></h3>
 <ul>
 <li>python: use <code>os.environ['ENV_VAR_NAME']</code></li>
 </ul>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-example-env</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr">  environment:</span></span><br><span class="line"><span class="attr">    variable1:</span> <span class="string">value1</span></span><br><span class="line"><span class="attr">    variable2:</span> <span class="string">value2</span></span><br><span class="line"><span class="attr">    FIRST_NAME:</span> <span class="string">"John"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-env-john:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">  hello-env-marc:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line">    <span class="comment"># environment variable can be override</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      FIRST_NAME:</span> <span class="string">"Marc"</span></span><br></pre></td></tr></table></figure>
-<h3><span id="pvpc-for-lambda-functions">VPC for Lambda Functions</span><a href="#pvpc-for-lambda-functions" class="header-anchor">#</a></h3>
+<h3><span id="vpc-for-lambda-functions">VPC for Lambda Functions</span></h3>
 <ul>
 <li>VPC: Virtual Private Cloud
 <ul>
@@ -470,7 +469,7 @@
 <li>get/create <code>securityGroupId</code> from AWS -&gt; VPC -&gt; Security Groups</li>
 </ul>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service:</span> <span class="string">python-example-vpc</span> <span class="comment"># <span class="doctag">NOTE:</span> update this with your service name</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr">  runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr">  profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr">  region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr">  vpc:</span></span><br><span class="line"><span class="attr">    securityGroupIds:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">securityGroupId1</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">securityGroupId2</span></span><br><span class="line"><span class="attr">    subnetIds:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">subnetId1</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">subnetId2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Can also set VPC parameter at function level</span></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr">  hello-vpc:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  hello-env-vpc-fun-level:</span></span><br><span class="line"><span class="attr">    handler:</span> <span class="string">handler.hello</span></span><br><span class="line"><span class="attr">    vpc:</span></span><br><span class="line"><span class="attr">      securityGroupIds:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">securityGroupId4</span></span><br><span class="line"><span class="attr">      subnetIds:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">subnetId4</span></span><br></pre></td></tr></table></figure>
-<h3><span id="preal-world-example-thumbnail-service">Real World Example - Thumbnail Service</span><a href="#preal-world-example-thumbnail-service" class="header-anchor">#</a></h3>
+<h3><span id="real-world-example-thumbnail-service">Real World Example - Thumbnail Service</span></h3>
 <ul>
 <li>To build Thumbnail Service, we need
 <ul>
@@ -503,7 +502,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># requirements.txt</span><br><span class="line">Pillow</span><br></pre></td></tr></table></figure>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># serverless.yml</span></span><br><span class="line"><span class="attr">service:</span> <span class="string">python-s3-thumbnail</span></span><br><span class="line"></span><br><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr"> name:</span> <span class="string">aws</span></span><br><span class="line"><span class="attr"> runtime:</span> <span class="string">python2.7</span></span><br><span class="line"><span class="attr"> profile:</span> <span class="string">serverless-clark-admin</span></span><br><span class="line"><span class="attr"> region:</span> <span class="string">us-east-2</span></span><br><span class="line"><span class="attr"> timeout:</span> <span class="number">10</span></span><br><span class="line"><span class="attr"> memorySize:</span> <span class="number">128</span></span><br><span class="line"><span class="attr"> iamRoleStatements:</span></span><br><span class="line"> <span class="comment"># allow function to do anything with S3</span></span><br><span class="line"><span class="attr">  - Effect:</span> <span class="string">"Allow"</span></span><br><span class="line"><span class="attr">    Action:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"s3:*"</span></span><br><span class="line"><span class="attr">    Resource:</span> <span class="string">"*"</span></span><br><span class="line"><span class="attr"> environment:</span></span><br><span class="line"><span class="attr">   THUMBNAIL_SIZE:</span> <span class="string">"128"</span></span><br><span class="line">   <span class="comment"># 128 in pixels</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">custom:</span></span><br><span class="line"><span class="attr"> bucket:</span> <span class="string">clark-s3-thumbnail-generator</span></span><br><span class="line"><span class="attr"> pythonRequirements:</span></span><br><span class="line">   <span class="comment"># run in docker</span></span><br><span class="line"><span class="attr">   dockerizePip:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">functions:</span></span><br><span class="line"><span class="attr"> s3-thumbnail-generator:</span></span><br><span class="line"><span class="attr">   handler:</span> <span class="string">handler.s3_thumbnail_generator</span></span><br><span class="line"><span class="attr">   events:</span></span><br><span class="line">   <span class="comment"># event:</span></span><br><span class="line">   <span class="comment"># it comes form a bucket,</span></span><br><span class="line">   <span class="comment"># and the event is an object has been created,</span></span><br><span class="line">   <span class="comment"># and the object ends by png,</span></span><br><span class="line">   <span class="comment"># then we will trigger the function</span></span><br><span class="line"><span class="attr">     - s3:</span></span><br><span class="line"><span class="attr">         bucket:</span> <span class="string">$&#123;self:custom.bucket&#125;</span></span><br><span class="line">         <span class="comment"># here is a variable $&#123;self: reference&#125;</span></span><br><span class="line">         <span class="comment"># it will look into the self document,</span></span><br><span class="line">         <span class="comment"># find custom key, and pick the value for bucket</span></span><br><span class="line">         <span class="comment"># we use variable here for reuse</span></span><br><span class="line"><span class="attr">         event:</span> <span class="attr">s3:ObjectCreated:*</span></span><br><span class="line"><span class="attr">         rules:</span></span><br><span class="line"><span class="attr">           - suffix:</span> <span class="string">.png</span></span><br><span class="line"></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line"> <span class="comment"># install plugin first</span></span><br><span class="line"> <span class="comment"># npm install --save serverless-python-requirements</span></span><br><span class="line"><span class="bullet"> -</span> <span class="string">serverless-python-requirements</span></span><br><span class="line"> <span class="comment"># it will instead everything in the requirement.txt</span></span><br><span class="line"> <span class="comment"># it uses docker</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># handler.py</span></span><br><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="keyword">import</span> cStringIO</span><br><span class="line"><span class="comment"># pip install Pillow</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageOps</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># boto3 is meant to use with AWS services</span></span><br><span class="line">s3 = boto3.client(<span class="string">'s3'</span>)</span><br><span class="line">size = int(os.environ[<span class="string">'THUMBNAIL_SIZE'</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">s3_thumbnail_generator</span><span class="params">(event, context)</span>:</span></span><br><span class="line">   <span class="comment"># parse event</span></span><br><span class="line">   print(event)</span><br><span class="line">   <span class="comment"># &#123;'Records': [&#123;'eventVersion': '2.1', 'eventTime': '2019-05-16T20:11:48.436Z', 'requestParameters': &#123;'sourceIPAddress': '206.160.213.245'&#125;, 's3': &#123;'configurationId': 'd0aa94a0-c481-409e-837a-b6ae07da9226', 'object': &#123;'eTag': 'e40ba443d96bc5efa3e90539fbcc2153', 'sequencer': '005CDDC40454CF3D9D', 'key': 'Shiro_the_Kagoneko.png', 'size': 2429979&#125;, 'bucket': &#123;'arn': 'arn:aws:s3:::clark-s3-thumbnail-generator', 'name': 'clark-s3-thumbnail-generator', 'ownerIdentity': &#123;'principalId': 'A2XD0XXXX8LII'&#125;&#125;, 's3SchemaVersion': '1.0'&#125;, 'responseElements': &#123;'x-amz-id-2': 'PQbZpUGqrZXdlGOIpQ15w9aMVUqAQ4VhD/IqOhL9QlUhkH0SQzm8rusfgrobi+hvbrYNtapVZNA=', 'x-amz-request-id': 'ED26AD0D9A70F876'&#125;, 'awsRegion': 'us-east-2', 'eventName': 'ObjectCreated:Put', 'userIdentity': &#123;'principalId': 'A2XD0XXXX8LII'&#125;, 'eventSource': 'aws:s3'&#125;]&#125;</span></span><br><span class="line">   bucket = event[<span class="string">'Records'</span>][<span class="number">0</span>][<span class="string">'s3'</span>][<span class="string">'bucket'</span>][<span class="string">'name'</span>]</span><br><span class="line">   key = event[<span class="string">'Records'</span>][<span class="number">0</span>][<span class="string">'s3'</span>][<span class="string">'object'</span>][<span class="string">'key'</span>]</span><br><span class="line">   <span class="comment"># only create a thumbnail on non thumbnail pictures</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">not</span> key.endswith(<span class="string">"_thumbnail.png"</span>)):</span><br><span class="line">       <span class="comment"># get the image</span></span><br><span class="line">       image = get_s3_image(bucket, key)</span><br><span class="line">       <span class="comment"># resize the image</span></span><br><span class="line">       thumbnail = image_to_thumbnail(image)</span><br><span class="line">       <span class="comment"># get the new filename</span></span><br><span class="line">       thumbnail_key = new_filename(key)</span><br><span class="line">       <span class="comment"># upload the file</span></span><br><span class="line">       url = upload_to_s3(bucket, thumbnail_key, thumbnail)</span><br><span class="line">       <span class="keyword">return</span> url</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_s3_image</span><span class="params">(bucket, key)</span>:</span></span><br><span class="line">   response = s3.get_object(Bucket=bucket, Key=key)</span><br><span class="line">   imagecontent = response[<span class="string">'Body'</span>].read()</span><br><span class="line"></span><br><span class="line">   file = cStringIO.StringIO(imagecontent)</span><br><span class="line">   img = Image.open(file)</span><br><span class="line">   <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">image_to_thumbnail</span><span class="params">(image)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> ImageOps.fit(image, (size, size), Image.ANTIALIAS)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_filename</span><span class="params">(key)</span>:</span></span><br><span class="line">   key_split = key.rsplit(<span class="string">'.'</span>, <span class="number">1</span>)</span><br><span class="line">   <span class="keyword">return</span> key_split[<span class="number">0</span>] + <span class="string">"_thumbnail.png"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_to_s3</span><span class="params">(bucket, key, image)</span>:</span></span><br><span class="line">   <span class="comment"># We're saving the image into a cStringIO object to avoid writing to disk</span></span><br><span class="line">   out_thumbnail = cStringIO.StringIO()</span><br><span class="line">   <span class="comment"># You MUST specify the file type because there is no file name to discern</span></span><br><span class="line">   <span class="comment"># it from</span></span><br><span class="line">   image.save(out_thumbnail, <span class="string">'PNG'</span>)</span><br><span class="line">   out_thumbnail.seek(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">   response = s3.put_object(</span><br><span class="line">       ACL=<span class="string">'public-read'</span>,</span><br><span class="line">       Body=out_thumbnail,</span><br><span class="line">       Bucket=bucket,</span><br><span class="line">       ContentType=<span class="string">'image/png'</span>,</span><br><span class="line">       Key=key</span><br><span class="line">   )</span><br><span class="line">   print(response)</span><br><span class="line"></span><br><span class="line">   url = <span class="string">'&#123;&#125;/&#123;&#125;/&#123;&#125;'</span>.format(s3.meta.endpoint_url, bucket, key)</span><br><span class="line">   <span class="keyword">return</span> url</span><br></pre></td></tr></table></figure>
-<h3><span id="preal-world-example-rest-api">Real World Example - REST API</span><a href="#preal-world-example-rest-api" class="header-anchor">#</a></h3>
+<h3><span id="real-world-example-rest-api">Real World Example - REST API</span></h3>
 
       
 
@@ -581,7 +580,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="table-of-contents"><a class="header-anchor" href="#table-of-contents">¶</a>Table of Contents</h2>
+        <h2><span id="table-of-contents">Table of Contents</span></h2>
 <ul>
 <li><a href="#basics">Basics</a>
 <ul>
@@ -606,8 +605,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="basics"><a class="header-anchor" href="#basics">¶</a>Basics</h3>
-<h4 id="what-is-typescript"><a class="header-anchor" href="#what-is-typescript">¶</a>What is TypeScript</h4>
+<h3><span id="basics">Basics</span></h3>
+<h4><span id="what-is-typescript">What is TypeScript</span></h4>
 <ul>
 <li>More feature than JS (Types, Classes, Interfaces…)
 <ul>
@@ -628,12 +627,12 @@
 <li>Animation &amp; Testing</li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="how-angular-app-get-loaded-and-started"><a class="header-anchor" href="#how-angular-app-get-loaded-and-started">¶</a>How Angular App get loaded and started</h4>
+<h4><span id="how-angular-app-get-loaded-and-started">How Angular App get loaded and started</span></h4>
 <ul>
 <li>main.ts is the first to be executed</li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="using-bootstrip"><a class="header-anchor" href="#using-bootstrip">¶</a>Using BootStrip</h4>
+<h4><span id="using-bootstrip">Using BootStrip</span></h4>
 <ul>
 <li>
 <p>install with <code>npm install --save bootstrap@3</code></p>
@@ -645,7 +644,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="components"><a class="header-anchor" href="#components">¶</a>Components</h4>
+<h4><span id="components">Components</span></h4>
 <ul>
 <li>
 <p>root component</p>
@@ -682,7 +681,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="module"><a class="header-anchor" href="#module">¶</a>Module</h4>
+<h4><span id="module">Module</span></h4>
 <ul>
 <li>
 <p>bundle of functionalities of our app</p>
@@ -693,7 +692,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="data-binding"><a class="header-anchor" href="#data-binding">¶</a>Data Binding</h4>
+<h4><span id="data-binding">Data Binding</span></h4>
 <ul>
 <li>
 <p>Data binding = communication</p>
@@ -752,7 +751,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="directive"><a class="header-anchor" href="#directive">¶</a>Directive</h4>
+<h4><span id="directive">Directive</span></h4>
 <ul>
 <li>
 <p>Instructions in the DOM</p>
@@ -822,7 +821,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="model"><a class="header-anchor" href="#model">¶</a>Model</h4>
+<h4><span id="model">Model</span></h4>
 <ul>
 <li>
 <p>name the file <code>XX.model.ts</code> (optional, but better to know what this file is about)</p>
@@ -830,8 +829,8 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h3 id="components-and-databinding"><a class="header-anchor" href="#components-and-databinding">¶</a>Components and Databinding</h3>
-<h4 id="property-and-event-binding"><a class="header-anchor" href="#property-and-event-binding">¶</a>Property and Event Binding</h4>
+<h3><span id="components-and-databinding">Components and Databinding</span></h3>
+<h4><span id="property-and-event-binding">Property and Event Binding</span></h4>
 <ul>
 <li>
 <p>We can use property binding on</p>
@@ -877,7 +876,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="css-and-view-encapsulation"><a class="header-anchor" href="#css-and-view-encapsulation">¶</a>CSS and View Encapsulation</h4>
+<h4><span id="css-and-view-encapsulation">CSS and View Encapsulation</span></h4>
 <ul>
 <li>
 <p>By default, it does not care in which css file you define a rule. It is applied to the whole document normally</p>
@@ -897,7 +896,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="using-local-reference-in-templates"><a class="header-anchor" href="#using-local-reference-in-templates">¶</a>Using local reference in Templates</h4>
+<h4><span id="using-local-reference-in-templates">Using local reference in Templates</span></h4>
 <ul>
 <li>
 <p>a local reference can be placed on any HTML</p>
@@ -918,7 +917,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="getting-access-to-template-and-dom-with-viewchild"><a class="header-anchor" href="#getting-access-to-template-and-dom-with-viewchild">¶</a>Getting Access to Template and DOM with @ViewChild</h4>
+<h4><span id="getting-access-to-template-and-dom-with-viewchild">Getting Access to Template and DOM with @ViewChild</span></h4>
 <ul>
 <li>&lt;input type=“text” #serverNameInput&gt;</li>
 <li>import <code>@ViewChild</code> from <code>@angular/core</code></li>
@@ -941,7 +940,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="getting-access-to-ng-content-with-contentchild"><a class="header-anchor" href="#getting-access-to-ng-content-with-contentchild">¶</a>Getting Access to ng-content with @ContentChild</h4>
+<h4><span id="getting-access-to-ng-content-with-contentchild">Getting Access to ng-content with @ContentChild</span></h4>
 <ul>
 <li>add <code>@ViewChild</code> in <code>server-element.component.ts</code> will not work, because it is not part of the view, it is part of the content</li>
 <li>We also have ContentChild</li>
@@ -949,7 +948,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- app/app.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">app-server-element</span></span></span><br><span class="line"><span class="tag">  *<span class="attr">ngFor</span>=<span class="string">"let serverElement of serverElements"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">element</span>]=<span class="string">"serverElement"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">name</span>]=<span class="string">"serverElement.name"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> #<span class="attr">contentParagraph</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span> *<span class="attr">ngIf</span>=<span class="string">"serverElement.type === 'server'"</span> <span class="attr">style</span>=<span class="string">"color: red"</span>&gt;</span>&#123;&#123; serverElement.content &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">em</span> *<span class="attr">ngIf</span>=<span class="string">"serverElement.type === 'blueprint'"</span>&gt;</span>&#123;&#123; serverElement.content &#125;&#125;<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">app-server-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/server-element/server-element.component.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Component,</span><br><span class="line">  OnInit,</span><br><span class="line">  Input,</span><br><span class="line">  ViewEncapsulation,</span><br><span class="line">  AfterContentInit,</span><br><span class="line">  ViewChild,</span><br><span class="line">  ElementRef,</span><br><span class="line">  ContentChild</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-server-element"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./server-element.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./server-element.component.css"</span>],</span><br><span class="line">  encapsulation: ViewEncapsulation.Emulated <span class="comment">// None, Native</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ServerElementComponent <span class="keyword">implements</span> OnInit, AfterContentInit &#123;</span><br><span class="line">  <span class="meta">@Input</span>() element: &#123; <span class="keyword">type</span>: <span class="built_in">string</span>; name: <span class="built_in">string</span>; content: <span class="built_in">string</span> &#125;;</span><br><span class="line">  <span class="meta">@Input</span>() name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="meta">@ViewChild</span>(<span class="string">"heading"</span>) header: ElementRef;</span><br><span class="line">  <span class="meta">@ContentChild</span>(<span class="string">"contentParagraph"</span>) paragraph: ElementRef;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element constructor"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element onInit"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content in ngOnInit: "</span> + <span class="keyword">this</span>.header.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngOnInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngAfterContentInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"ngAfterContentInit called"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngAfterContentInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="#table-of-contents">#Top</a></p>
-<h4 id="component-lifecycle"><a class="header-anchor" href="#component-lifecycle">¶</a>Component Lifecycle</h4>
+<h4><span id="component-lifecycle">Component Lifecycle</span></h4>
 <ul>
 <li>
 <p>Implement the method alone will do the trick, but it is a good practice to be very explicit about which interfaces you implement (this is true for all hooks)</p>
@@ -1143,7 +1142,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="tutorials-on-the-left"><a class="header-anchor" href="#tutorials-on-the-left">¶</a>Tutorials On the left</h2>
+        <h2><span id="tutorials-on-the-left">Tutorials On the left</span></h2>
 <ul>
 <li>
 <p>On the left, the <strong>tutorials</strong> refers to the tag, can <em>only display available</em> tags(tutorials <em>needs to</em> be there, otherwise will return 403)</p>
@@ -1238,17 +1237,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start"><a class="header-anchor" href="#quick-start">¶</a>Quick Start</h2>
-<h3 id="create-a-new-post"><a class="header-anchor" href="#create-a-new-post">¶</a>Create a new post</h3>
+<h2><span id="quick-start">Quick Start</span></h2>
+<h3><span id="create-a-new-post">Create a new post</span></h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="run-server"><a class="header-anchor" href="#run-server">¶</a>Run server</h3>
+<h3><span id="run-server">Run server</span></h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files"><a class="header-anchor" href="#generate-static-files">¶</a>Generate static files</h3>
+<h3><span id="generate-static-files">Generate static files</span></h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="header-anchor" href="#deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
+<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
