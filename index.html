@@ -146,6 +146,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mars-Boarding-Pass" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/05/23/Mars-Boarding-Pass/">Mars Boarding Pass</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2019/05/23/Mars-Boarding-Pass/" class="archive-article-date">
+  	<time datetime="2019-05-23T21:43:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://mars.nasa.gov/layout/embed/send-your-name/mars2020/certificate/?cn=597961888778" alt="Image of Boarding Pass"></p>
+<h2 id="to-embed-it-in-html-use-the-following-code"><a class="header-anchor" href="#to-embed-it-in-html-use-the-following-code">¶</a>To Embed it in HTML, use the following code</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">width</span>=<span class="string">"980"</span> <span class="attr">height</span>=<span class="string">"410"</span> <span class="attr">src</span>=<span class="string">"https://mars.nasa.gov/layout/embed/send-your-name/mars2020/certificate/?cn=597961888778"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">fun</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2019/05/23/Mars-Boarding-Pass/">Show All >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Aws-Lambda-and-Serverless" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -720,6 +795,11 @@
 <li><a href="#component-lifecycle">Component Lifecycle</a></li>
 </ul>
 </li>
+<li><a href="#directives-deep-dive">Directives Deep Dive</a>
+<ul>
+<li><a href="#attribute-vs-structural">Attribute vs Structural</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="basics"><a class="header-anchor" href="#basics">¶</a>Basics</h3>
 <h4 id="what-is-typescript"><a class="header-anchor" href="#what-is-typescript">¶</a>What is TypeScript</h4>
@@ -1103,6 +1183,29 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<h3 id="directives-deep-dive"><a class="header-anchor" href="#directives-deep-dive">¶</a>Directives Deep Dive</h3>
+<h4 id="attribute-vs-structural"><a class="header-anchor" href="#attribute-vs-structural">¶</a>Attribute vs Structural</h4>
+<ul>
+<li>
+<p>Attribute Directive</p>
+<ul>
+<li>They sit on elements, just like attributes</li>
+<li>You never destroy an element from the DOM</li>
+<li>Look like a normal HTML attribute (possibly with databinding or event bindings)</li>
+<li>Only affect/change the element they are added to</li>
+</ul>
+</li>
+<li>
+<p>Structural Directive</p>
+<ul>
+<li>change the structure of the DOM around the element</li>
+<li>If you have ngIf on a paragraph, and condition is false, this paragraph is removed from the DOM</li>
+<li>Look like a normal HTML Attribute but have a leading * (for desugaring)</li>
+<li>Affect a whole area in the DOM (elements get added/removed)</li>
+</ul>
+</li>
+</ul>
+<h4 id="ngfor-and-ngif-recap"><a class="header-anchor" href="#ngfor-and-ngif-recap">¶</a>ngFor and ngIf recap</h4>
 
       
 
@@ -1500,6 +1603,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fun</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>

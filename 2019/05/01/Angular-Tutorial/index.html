@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="¶Table of Contents  Basics  What is TypeScript How Angular App get loaded and started Using BootStrap Components Module Data Binding Directive Model   Components and Databinding  Property and Event Bi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-16T21:35:56.531Z">
+<meta property="og:updated_time" content="2019-05-23T21:42:25.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Tutorial">
 <meta name="twitter:description" content="¶Table of Contents  Basics  What is TypeScript How Angular App get loaded and started Using BootStrap Components Module Data Binding Directive Model   Components and Databinding  Property and Event Bi">
@@ -191,6 +191,11 @@
 <li><a href="#getting-access-to-template-and-dom-with-viewchild">Getting Access to Template and DOM with @ViewChild</a></li>
 <li><a href="#getting-access-to-ng-content-with-contentchild">Getting Access to ng-content with @ContentChild</a></li>
 <li><a href="#component-lifecycle">Component Lifecycle</a></li>
+</ul>
+</li>
+<li><a href="#directives-deep-dive">Directives Deep Dive</a>
+<ul>
+<li><a href="#attribute-vs-structural">Attribute vs Structural</a></li>
 </ul>
 </li>
 </ul>
@@ -576,6 +581,29 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<h3 id="directives-deep-dive"><a class="header-anchor" href="#directives-deep-dive">¶</a>Directives Deep Dive</h3>
+<h4 id="attribute-vs-structural"><a class="header-anchor" href="#attribute-vs-structural">¶</a>Attribute vs Structural</h4>
+<ul>
+<li>
+<p>Attribute Directive</p>
+<ul>
+<li>They sit on elements, just like attributes</li>
+<li>You never destroy an element from the DOM</li>
+<li>Look like a normal HTML attribute (possibly with databinding or event bindings)</li>
+<li>Only affect/change the element they are added to</li>
+</ul>
+</li>
+<li>
+<p>Structural Directive</p>
+<ul>
+<li>change the structure of the DOM around the element</li>
+<li>If you have ngIf on a paragraph, and condition is false, this paragraph is removed from the DOM</li>
+<li>Look like a normal HTML Attribute but have a leading * (for desugaring)</li>
+<li>Affect a whole area in the DOM (elements get added/removed)</li>
+</ul>
+</li>
+</ul>
+<h4 id="ngfor-and-ngif-recap"><a class="header-anchor" href="#ngfor-and-ngif-recap">¶</a>ngFor and ngIf recap</h4>
 
       
 
@@ -701,7 +729,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#table-of-contents"><span class="toc-number">1.</span> <span class="toc-text">¶Table of Contents</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basics"><span class="toc-number">1.1.</span> <span class="toc-text">¶Basics</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#what-is-typescript"><span class="toc-number">1.1.1.</span> <span class="toc-text">¶What is TypeScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#how-angular-app-get-loaded-and-started"><span class="toc-number">1.1.2.</span> <span class="toc-text">¶How Angular App get loaded and started</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#using-bootstrap"><span class="toc-number">1.1.3.</span> <span class="toc-text">¶Using BootStrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#components"><span class="toc-number">1.1.4.</span> <span class="toc-text">¶Components</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#module"><span class="toc-number">1.1.5.</span> <span class="toc-text">¶Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-binding"><span class="toc-number">1.1.6.</span> <span class="toc-text">¶Data Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#directive"><span class="toc-number">1.1.7.</span> <span class="toc-text">¶Directive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#model"><span class="toc-number">1.1.8.</span> <span class="toc-text">¶Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#components-and-databinding"><span class="toc-number">1.2.</span> <span class="toc-text">¶Components and Databinding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#property-and-event-binding"><span class="toc-number">1.2.1.</span> <span class="toc-text">¶Property and Event Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css-and-view-encapsulation"><span class="toc-number">1.2.2.</span> <span class="toc-text">¶CSS and View Encapsulation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#using-local-reference-in-templates"><span class="toc-number">1.2.3.</span> <span class="toc-text">¶Using local reference in Templates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getting-access-to-template-and-dom-with-viewchild"><span class="toc-number">1.2.4.</span> <span class="toc-text">¶Getting Access to Template and DOM with @ViewChild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getting-access-to-ng-content-with-contentchild"><span class="toc-number">1.2.5.</span> <span class="toc-text">¶Getting Access to ng-content with @ContentChild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#component-lifecycle"><span class="toc-number">1.2.6.</span> <span class="toc-text">¶Component Lifecycle</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#table-of-contents"><span class="toc-number">1.</span> <span class="toc-text">¶Table of Contents</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basics"><span class="toc-number">1.1.</span> <span class="toc-text">¶Basics</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#what-is-typescript"><span class="toc-number">1.1.1.</span> <span class="toc-text">¶What is TypeScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#how-angular-app-get-loaded-and-started"><span class="toc-number">1.1.2.</span> <span class="toc-text">¶How Angular App get loaded and started</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#using-bootstrap"><span class="toc-number">1.1.3.</span> <span class="toc-text">¶Using BootStrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#components"><span class="toc-number">1.1.4.</span> <span class="toc-text">¶Components</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#module"><span class="toc-number">1.1.5.</span> <span class="toc-text">¶Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-binding"><span class="toc-number">1.1.6.</span> <span class="toc-text">¶Data Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#directive"><span class="toc-number">1.1.7.</span> <span class="toc-text">¶Directive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#model"><span class="toc-number">1.1.8.</span> <span class="toc-text">¶Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#components-and-databinding"><span class="toc-number">1.2.</span> <span class="toc-text">¶Components and Databinding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#property-and-event-binding"><span class="toc-number">1.2.1.</span> <span class="toc-text">¶Property and Event Binding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css-and-view-encapsulation"><span class="toc-number">1.2.2.</span> <span class="toc-text">¶CSS and View Encapsulation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#using-local-reference-in-templates"><span class="toc-number">1.2.3.</span> <span class="toc-text">¶Using local reference in Templates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getting-access-to-template-and-dom-with-viewchild"><span class="toc-number">1.2.4.</span> <span class="toc-text">¶Getting Access to Template and DOM with @ViewChild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getting-access-to-ng-content-with-contentchild"><span class="toc-number">1.2.5.</span> <span class="toc-text">¶Getting Access to ng-content with @ContentChild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#component-lifecycle"><span class="toc-number">1.2.6.</span> <span class="toc-text">¶Component Lifecycle</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#directives-deep-dive"><span class="toc-number">1.3.</span> <span class="toc-text">¶Directives Deep Dive</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#attribute-vs-structural"><span class="toc-number">1.3.1.</span> <span class="toc-text">¶Attribute vs Structural</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ngfor-and-ngif-recap"><span class="toc-number">1.3.2.</span> <span class="toc-text">¶ngFor and ngIf recap</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -811,6 +839,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fun</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
