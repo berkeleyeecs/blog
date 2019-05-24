@@ -823,11 +823,13 @@
 <li>Animation &amp; Testing</li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="how-angular-app-get-loaded-and-started"><a class="header-anchor" href="#how-angular-app-get-loaded-and-started">¶</a>How Angular App get loaded and started</h4>
 <ul>
 <li>main.ts is the first to be executed</li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="using-bootstrap"><a class="header-anchor" href="#using-bootstrap">¶</a>Using BootStrap</h4>
 <ul>
 <li>
@@ -840,6 +842,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="components"><a class="header-anchor" href="#components">¶</a>Components</h4>
 <ul>
 <li>
@@ -877,6 +880,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="module"><a class="header-anchor" href="#module">¶</a>Module</h4>
 <ul>
 <li>
@@ -888,6 +892,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="data-binding"><a class="header-anchor" href="#data-binding">¶</a>Data Binding</h4>
 <ul>
 <li>
@@ -947,6 +952,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="directive"><a class="header-anchor" href="#directive">¶</a>Directive</h4>
 <ul>
 <li>
@@ -1017,6 +1023,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="model"><a class="header-anchor" href="#model">¶</a>Model</h4>
 <ul>
 <li>
@@ -1025,6 +1032,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h3 id="components-and-databinding"><a class="header-anchor" href="#components-and-databinding">¶</a>Components and Databinding</h3>
 <h4 id="property-and-event-binding"><a class="header-anchor" href="#property-and-event-binding">¶</a>Property and Event Binding</h4>
 <ul>
@@ -1072,6 +1080,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="css-and-view-encapsulation"><a class="header-anchor" href="#css-and-view-encapsulation">¶</a>CSS and View Encapsulation</h4>
 <ul>
 <li>
@@ -1092,6 +1101,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="using-local-reference-in-templates"><a class="header-anchor" href="#using-local-reference-in-templates">¶</a>Using local reference in Templates</h4>
 <ul>
 <li>
@@ -1113,6 +1123,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="getting-access-to-template-and-dom-with-viewchild"><a class="header-anchor" href="#getting-access-to-template-and-dom-with-viewchild">¶</a>Getting Access to Template and DOM with @ViewChild</h4>
 <ul>
 <li>&lt;input type=“text” #serverNameInput&gt;</li>
@@ -1136,6 +1147,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="getting-access-to-ng-content-with-contentchild"><a class="header-anchor" href="#getting-access-to-ng-content-with-contentchild">¶</a>Getting Access to ng-content with @ContentChild</h4>
 <ul>
 <li>add <code>@ViewChild</code> in <code>server-element.component.ts</code> will not work, because it is not part of the view, it is part of the content</li>
@@ -1144,6 +1156,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- app/app.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">app-server-element</span></span></span><br><span class="line"><span class="tag">  *<span class="attr">ngFor</span>=<span class="string">"let serverElement of serverElements"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">element</span>]=<span class="string">"serverElement"</span></span></span><br><span class="line"><span class="tag">  [<span class="attr">name</span>]=<span class="string">"serverElement.name"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> #<span class="attr">contentParagraph</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span> *<span class="attr">ngIf</span>=<span class="string">"serverElement.type === 'server'"</span> <span class="attr">style</span>=<span class="string">"color: red"</span>&gt;</span>&#123;&#123; serverElement.content &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">em</span> *<span class="attr">ngIf</span>=<span class="string">"serverElement.type === 'blueprint'"</span>&gt;</span>&#123;&#123; serverElement.content &#125;&#125;<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">app-server-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/server-element/server-element.component.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Component,</span><br><span class="line">  OnInit,</span><br><span class="line">  Input,</span><br><span class="line">  ViewEncapsulation,</span><br><span class="line">  AfterContentInit,</span><br><span class="line">  ViewChild,</span><br><span class="line">  ElementRef,</span><br><span class="line">  ContentChild</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  selector: <span class="string">"app-server-element"</span>,</span><br><span class="line">  templateUrl: <span class="string">"./server-element.component.html"</span>,</span><br><span class="line">  styleUrls: [<span class="string">"./server-element.component.css"</span>],</span><br><span class="line">  encapsulation: ViewEncapsulation.Emulated <span class="comment">// None, Native</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ServerElementComponent <span class="keyword">implements</span> OnInit, AfterContentInit &#123;</span><br><span class="line">  <span class="meta">@Input</span>() element: &#123; <span class="keyword">type</span>: <span class="built_in">string</span>; name: <span class="built_in">string</span>; content: <span class="built_in">string</span> &#125;;</span><br><span class="line">  <span class="meta">@Input</span>() name: <span class="built_in">string</span>;</span><br><span class="line">  <span class="meta">@ViewChild</span>(<span class="string">"heading"</span>) header: ElementRef;</span><br><span class="line">  <span class="meta">@ContentChild</span>(<span class="string">"contentParagraph"</span>) paragraph: ElementRef;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element constructor"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app-server-element onInit"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content in ngOnInit: "</span> + <span class="keyword">this</span>.header.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngOnInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngAfterContentInit() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"ngAfterContentInit called"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">"Text Content of paragraph in ngAfterContentInit: "</span> +</span><br><span class="line">        <span class="keyword">this</span>.paragraph.nativeElement.textContent</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h4 id="component-lifecycle"><a class="header-anchor" href="#component-lifecycle">¶</a>Component Lifecycle</h4>
 <ul>
 <li>
@@ -1183,6 +1196,7 @@
 </li>
 </ul>
 <p><a href="#table-of-contents">#Top</a></p>
+<hr>
 <h3 id="directives-deep-dive"><a class="header-anchor" href="#directives-deep-dive">¶</a>Directives Deep Dive</h3>
 <h4 id="attribute-vs-structural"><a class="header-anchor" href="#attribute-vs-structural">¶</a>Attribute vs Structural</h4>
 <ul>
@@ -1205,7 +1219,50 @@
 </ul>
 </li>
 </ul>
-<h4 id="ngfor-and-ngif-recap"><a class="header-anchor" href="#ngfor-and-ngif-recap">¶</a>ngFor and ngIf recap</h4>
+<hr>
+<h4 id="create-a-basic-attribute-directive"><a class="header-anchor" href="#create-a-basic-attribute-directive">¶</a>Create A Basic Attribute Directive</h4>
+<ul>
+<li>
+<p>To make it a directive, add @Directive (<code>import { Directive } from '@angular/core'</code>)</p>
+</li>
+<li>
+<p>Need to pass an object to this decorator to configure this directive</p>
+<ul>
+<li>
+<p>unique <code>selector</code> (We do place directives in our template to attach them to elements)</p>
+</li>
+<li>
+<p>The directive name is just a selector</p>
+</li>
+<li>
+<p>The square brackets here are not part of that name</p>
+</li>
+<li>
+<p>It is part of this selector style telling Angular please select it as an attribute on an element</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  <span class="comment">// want to have attribute style</span></span><br><span class="line">  <span class="comment">// this will be recognized whenever I add appBasicHighlight without square brackets to an element</span></span><br><span class="line">  selector: <span class="string">'[appBasicHighlight]'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>need to add directive in <code>declarations</code> in <code>app.module.ts</code></p>
+</li>
+<li>
+<p>We can inject the element that this directive sits on into this directive</p>
+<ul>
+<li>Injection is an easy way to get access to some other classes without having them to instantiate on our own</li>
+<li>We do injection by adding the constructor which every TypeScript class has</li>
+<li>On the list of arguments in <code>constructor</code>, we list a couple of arguments we want to get whenever an instance of this class here is created</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- app.component.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-12"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">appBasicHighlight</span>&gt;</span>Style me with basic directive<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- We don't use square brackets because the directive name is just a selector we set up --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.module.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; FormsModule &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; HttpModule &#125; <span class="keyword">from</span> <span class="string">'@angular/http'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">'./app.component'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BasicHighlightDirective &#125; <span class="keyword">from</span> <span class="string">'./basic-highlight/basic-highlight.directive'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NgModule</span>(&#123;</span><br><span class="line">  declarations: [</span><br><span class="line">    AppComponent,</span><br><span class="line">    <span class="comment">// need to add directive in declarations</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// *************************************</span></span><br><span class="line">    <span class="comment">// *************************************</span></span><br><span class="line">    BasicHighlightDirective</span><br><span class="line">    <span class="comment">// *************************************</span></span><br><span class="line">    <span class="comment">// *************************************</span></span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line">  imports: [</span><br><span class="line">    BrowserModule,</span><br><span class="line">    FormsModule,</span><br><span class="line">    HttpModule</span><br><span class="line">  ],</span><br><span class="line">  providers: [],</span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/basic-highlight/basic-highlight.directive.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; Directive, ElementRef, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[appBasicHighlight]'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> BasicHighlightDirective <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line">  <span class="comment">// on the list of arguments, we list a couple of arguments we want to get whenever an instance of this class here is created</span></span><br><span class="line">  <span class="comment">// here we need in this case is a reference to the element the directive was placed on</span></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> elementRef: ElementRef</span>) &#123;</span><br><span class="line">    <span class="comment">// adding a private here will be make it a property of this class, and automatically assign this value</span></span><br><span class="line">  &#125;</span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">this</span>.elementRef.nativeElement.style.backgroundColor = <span class="string">'green'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h4 id="using-the-renderer-to-build-a-better-attribute-directive"><a class="header-anchor" href="#using-the-renderer-to-build-a-better-attribute-directive">¶</a>Using the Renderer to Build a Better Attribute Directive</h4>
+<ul>
+<li>Not a good practice to directly access the element</li>
+</ul>
 
       
 
